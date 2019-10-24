@@ -1,0 +1,63 @@
+<div id="popupContainer">
+	<div class="crm-bottom-popup">
+		<div class="crm-bottom-popup__container">
+			<div class="crm-bottom-popup__left-column">
+				<div class="crm-bottom-popup__title-1">Join us!</div>
+				<div class="crm-bottom-popup__title-2">A message from the Editor of Times of Israel</div>
+				<div class="crm-david-horovitz">
+					<div class="crm-david-horovitz__name">David Horovitz</div>
+					<div class="crm-david-horovitz__photo"></div>
+				</div>
+			</div>
+			<div class="crm-bottom-popup__right-column">
+				<div class="crm-bottom-popup__content">
+					<p>The Times of Israel covers one of the most complicated, and contentious, parts of the world. Determined to keep readers fully informed and enable them to form and flesh out their own opinions, The Times of Israel has gradually established itself as the leading source of independent and fair-minded journalism on Israel, the region and the Jewish world.</p>
+					<p>We've achieved this by investing ever-greater resources in our journalism while keeping all of the content on our site free.</p>
+					<p>Unlike many other news sites, we have not put up a paywall. But we would like to invite readers who can afford to do so, and for whom The Times of Israel has become important, to help support our journalism by joining The <strong>The Times of Israel Community.</strong> Join now and for as little as $6 a month you can both help ensure our ongoing investment in quality journalism, and enjoy special status and benefits as a Times of Israel Community member.</p>
+				</div>
+				<div class="crm-bottom-popup__btn-holder">
+					<a href="https://crm.timesofisrael.com" class="crm-bottom-popup__btn">Become a member of The Times of Israel Community</a>
+				</div>
+			</div>
+			<div class="crm-bottom-popup__close"></div>
+		</div>
+	</div>
+</div>	
+
+<script type="text/javascript">
+	var isMobile = false; /* Modify this if is a creative for mobile */
+	var cssLocation = "css/crm-popup.css"; // Location to the CSS
+
+	/* Insert the CSS */
+	var cssLink = parent.document.createElement('link');
+	cssLink.rel = "stylesheet";
+	cssLink.href = cssLocation;
+	cssLink.onload = cssLoaded;
+	parent.document.head.appendChild(cssLink);
+
+	/* Close function */
+	function popupCloseOnClick() {
+	    var thisParent = this.closest('.crm-bottom-popup');
+	    if ( thisParent.classList.contains('open') ) {
+	      thisParent.classList.remove('open');
+	    }
+	 }
+	/* Assign close function */
+	document.querySelector('.crm-bottom-popup__close').onclick = popupCloseOnClick;
+
+	/* On css Loaded*/
+	function cssLoaded(){
+		/* Get popupContainer */
+		var popupContainer = document.getElementById('popupContainer');
+		/* If is mobile add the class*/
+		if(isMobile) popupContainer.classList.add("mobile");
+
+		/* Inject the popup */
+		parent.document.body.appendChild(popupContainer);
+
+		/* Open the popup*/
+		setTimeout(function() {
+	      popupContainer.children[0].classList.add('open');
+	    }, 1000);
+	}
+</script>
